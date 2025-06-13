@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Weather.css'
 import search_icon from '../assets/Assets/search.png'
 import clear from '../assets/Assets/clear.png'
@@ -11,6 +11,23 @@ import wind from '../assets/Assets/wind.png'
 
 
 const Weather = () => {
+
+  const [weatherData, setWeatherData]= useState(false);
+
+  const search = async (city) => {
+  try {
+    const url = `https://api.weatherapi.com/v1/current.json?key=b29e3d22985243199c9200650251306&q=${city}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Failed to fetch weather data:", error);
+  }
+};
+
+  useEffect(()=>{
+    search("London");
+  },[])
   return (
     <div className='weather'>
       <div className="search">
