@@ -50,5 +50,16 @@
 }
 
 .weather-data{
-  
+  width: 100%;
+  margin-top: 40px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.col{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 32px;
 }
